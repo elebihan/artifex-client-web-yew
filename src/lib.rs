@@ -5,14 +5,13 @@
 //
 
 pub mod rpc {
-    tonic::include_proto!("artifex");
-
+    pub use artifex_rpc::*;
     use tonic_web_wasm_client::Client;
 
     /// Create a client for gRPC server.
-    pub fn create_client(url: &str) -> self::artifex_client::ArtifexClient<Client> {
+    pub fn create_client(url: &str) -> artifex_client::ArtifexClient<Client> {
         let client = Client::new(url.to_string());
-        self::artifex_client::ArtifexClient::new(client)
+        artifex_client::ArtifexClient::new(client)
     }
 }
 

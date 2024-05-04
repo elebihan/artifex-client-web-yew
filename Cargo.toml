@@ -6,12 +6,13 @@ authors = ["Eric Le Bihan <eric.le.bihan.dev@free.fr>"]
 edition = "2021"
 license = "MIT"
 rust-version = "1.64"
+resolver = "2"
 
 [dependencies]
+artifex-rpc = { git = "https://github.com/elebihan/artifex", rev = "1771f96" }
 futures-util = "0.3.29"
 gloo = "0.10.0"
 gloo-console = "0.3.0"
-prost = "0.12.3"
 tonic = { version = "0.11", default-features = false, features = ["prost", "codegen"] }
 tonic-web-wasm-client = "0.5.0"
 wasm-bindgen = "0.2.88"
@@ -19,9 +20,6 @@ wasm-bindgen-futures = "0.4.38"
 web-sys = { version = "0.3.65", features = ["Headers", "Request", "RequestInit", "RequestMode", "Response", "Window"] }
 yew = { version = "0.21.0", features = ["csr"] }
 yew-hooks = "0.3.0"
-
-[build-dependencies]
-tonic-build = { version = "0.11", default-features = false, features = ["prost"] }
 
 [profile.release]
 panic = 'abort'
